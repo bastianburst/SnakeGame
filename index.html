@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="device=device-width, initial-scale=1" />
+    <meta name="author" content="Sebastian Gallego - Full Stack Developer" />
+    <title>Snake game</title>
+    <link rel="stylesheet" href="assets/css/estilos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg" href="assets/img/serpiente.svg" />
+
+    <!--Practica de uso de prepros, un transpiler para cualquier tipo de lenguaje sass, css, ecmascript 6 entre otros-->
+    <!--En este caso pasaremos de ecmascript 6 a javascript normal-->
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <span>Puntaje</span>
+            <input type="number" id="puntajeinput" value="0" readonly="readonly"/>
+        </div>
+
+        <canvas id="canvascont" width="600px" height="300px"></canvas>
+        <input class="buttonretry" type="button" value="Retry" onclick="location.reload()"/>
+    </div>
+
+    <script src="assets/js/main-dist.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+body{
+    margin:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#canvascont{
+    border:1px solid black;
+    background: #000000e0;
+}
+.container > div > input{
+    display: inline-block;
+    font-family: 'Press Start 2P', cursive;
+    font-size:1.1em;
+    color:#0b8a02;
+    width: 50px;
+    border-radius: 5%;
+    border:2px solid #923b3b;
+}
+.container > div{
+    display: inline-block;
+    font-family: 'Press Start 2P', cursive;
+    font-size:1.1em;
+    color:#923b3b;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background: #cacaca;
+    padding: 1em;
+    border-radius: 2%;
+}
+.buttonretry{
+    background: #0b8a02;
+    border-radius: 5%;
+    padding: .5em;
+    color:white;
+    cursor:pointer;
+    display: none;
+    margin-top: 1em;
+    font-weight: bold;
+}

@@ -3,6 +3,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 #canvascont{
     border:1px solid black;
@@ -27,9 +31,34 @@ body{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    background: #cacaca;
+    background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 1em;
     border-radius: 2%;
+    margin-top: 5em;
+}
+.containercard, .containercard2{
+    background: #315463;
+    padding: 2em;
+    margin-top: 1em;
+    border-radius: 10px;
+    font-family:'Press Start 2P', cursive;
+    color:white;
+    font-size:15px;
+}
+.containercard2 >img{
+    width: 30px;
+    height: 30px;
+}
+
+.containercard{
+    display: none;
+    animation: bounce 0.3s infinite alternate;
+    -webkit-animation: bounce 0.3s infinite alternate;
+}
+.card > p{
+    font-size:20px;
 }
 .buttonretry{
     background: #0b8a02;
@@ -40,4 +69,23 @@ body{
     display: none;
     margin-top: 1em;
     font-weight: bold;
+    font-size: 17px;
+    font-family:'Press Start 2P', cursive;
 }
+
+  @keyframes bounce {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-5px);
+    }
+  }
+  @-webkit-keyframes bounce {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-5px);
+    }
+  }

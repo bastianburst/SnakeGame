@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="device=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Sebastian Gallego - Full Stack Developer" />
     <title>Snake game</title>
     <link rel="stylesheet" href="assets/css/estilos.css" />
@@ -16,15 +16,25 @@
 
 <body>
     <div class="container">
+
         <div>
-            <span>Puntaje</span>
-            <input type="number" id="puntajeinput" value="0" readonly="readonly"/>
+            <span>Score</span>
+            <input type="number" id="puntajeinput" value="0" readonly="readonly" />
         </div>
 
         <canvas id="canvascont" width="600px" height="300px"></canvas>
-        <input class="buttonretry" type="button" value="Retry" onclick="location.reload()"/>
+        <input class="buttonretry" type="button" value="Retry" onclick="location.reload()" />
     </div>
-
+    <div class="containercard">
+        <div class="card">
+            <p>Your Score: 
+                <span id="showpoints"></span>
+            </p>
+        </div>
+    </div>
+    <div class="containercard2">
+            use the arrows keys to move the snake <img src="assets/img/keyboard3.svg"> <img src="assets/img/keyboard2.svg"> <img src="assets/img/keyboard1.svg"> <img src="assets/img/keyboard4.svg">
+        </div>
     <script src="assets/js/main-dist.js"></script>
 </body>
 

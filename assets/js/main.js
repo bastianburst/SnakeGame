@@ -3,6 +3,7 @@
     //compatible con todos los navegadores
 
     //Creamos la clase Snake y su consturctor
+
     class Cuadrado {
         constructor(x, y) {
             this.x = x
@@ -101,22 +102,22 @@
         //Aunque igual si hiciera ese movimiento simplemente perderia al chocar los cuadros.
         right() {
             //lo movemos 10 px a la derecha
-            if(this.direction === 'left') return;
+            if (this.direction === 'left') return;
             this.direction = 'right';
         }
         left() {
             //lo movemos 10 px a la izquierda
-            if(this.direction === 'right') return;
+            if (this.direction === 'right') return;
             this.direction = 'left';
         }
         up() {
             //lo movemos 10 px hacia arriba
-            if(this.direction === 'down') return;
+            if (this.direction === 'down') return;
             this.direction = 'up';
         }
         down() {
             //lo movemos 10 px hacia abajo
-            if(this.direction === 'up') return;
+            if (this.direction === 'up') return;
             this.direction = 'down';
         }
 
@@ -176,10 +177,13 @@
     const snake = new Snake()
     let arrayfood = []
     let puntos = 0
+    let speed = 12
     let puntaje = document.getElementById('puntajeinput')
     let retry = document.querySelector('.buttonretry')
-    //console.log(retry)
-    
+    let cardpoints = document.querySelector('.containercard')
+    let pointshow = document.getElementById('showpoints')
+    //console.log(pointshow)
+
 
     //con eventos se malipulan via Listeners o  escuchas
     //En este casp haremos que nos avise cuando se presiona una tecla del teclado o se de clik en un area
@@ -200,27 +204,31 @@
     })
 
     //Una función que se ejecute constantemente y dé el efecto del movimiento
-    const movement = setInterval(function () {
-        //Ejecutamos la función move
-        snake.move()
-        //clearRect en lugar de diibujar borra lo que se encuentre dentro del cuadrado que dibujemos
-        //En este caso borraremos todo el canvas, desde la coordenada (0 x, 0 y) todo el ancho y alto del canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        //Volvemos a dibujar el cuadrado en la nueva posición
-        snake.drawcuadrado()
-        drawFood()
+    function movementEfect() {
+        const movement = setInterval(function () {
+            //console.log(speed);
+            //Ejecutamos la función move
+            snake.move()
+            //clearRect en lugar de diibujar borra lo que se encuentre dentro del cuadrado que dibujemos
+            //En este caso borraremos todo el canvas, desde la coordenada (0 x, 0 y) todo el ancho y alto del canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            //Volvemos a dibujar el cuadrado en la nueva posición
+            snake.drawcuadrado()
+            drawFood()
 
-        if (snake.dead()) {
-            console.log("Game over")
+            if (snake.dead()) {
+                console.log("Game over")
 
-            //Hacer que el intervalo se detenga, esto lo hacemos
-            //con clearInterval
-            window.clearInterval(movement)
-            gameOver()
-        }
-    }, 1000 / 10)
+                //Hacer que el intervalo se detenga, esto lo hacemos
+                //con clearInterval
+                window.clearInterval(movement)
+                gameOver()
+            }
+        }, 1000 / speed)
 
+    }
 
+    movementEfect()
     //Ejecución cada 5 segundos de el generador de comida
     setInterval(function () {
         const comida = Food.generate()
@@ -286,11 +294,13 @@
 
 
     //Texto de game over
-    function gameOver(){
+    function gameOver() {
         ctx.font = "20pt Verdana";
-        ctx.fillStyle="#0b8a02";
-        ctx.fillText("GAME OVER",210,150);
+        ctx.fillStyle = "#0b8a02";
+        ctx.fillText("GAME OVER", 210, 150);
         retry.setAttribute('style', 'display:block')
+        cardpoints.setAttribute('style', 'display:block')
+        pointshow.innerHTML = puntos
     }
 
 })()
